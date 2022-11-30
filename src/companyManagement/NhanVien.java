@@ -1,18 +1,28 @@
+package companyManagement;
+
+import companyManagement.NhanSu;
+
 import java.util.*;
+
 import static java.lang.String.*;
 import static java.lang.System.*;
-public class NhanVienThuong extends NhanSu {
+import static support.constant.*;
+import static support.support.*;
+
+public class NhanVien extends NhanSu {
     private String tenTruongPhong;
     private final double luongNgay = 100;
     private final Scanner mScan = new Scanner(in);
+    // #endregion
 
+    // #region Methods
     @Override
     public void tinhLuong() {
-        luongThang = soNgayDiLam * luongNgay;
+        luongThang = soNgayLamViec * luongNgay;
     }
 
     public void nhapTenTruongPhong() {
-        out.println("Ten truong phong: ");
+        printAdv(GREEN, "Tên trưởng phòng: ", RESET);
         tenTruongPhong = mScan.nextLine();
     }
 
@@ -24,12 +34,12 @@ public class NhanVienThuong extends NhanSu {
     }
 
     public void xuatTenTruongPhong() {
-        out.println("Ten truong phong: " + tenTruongPhong);
+        printlnAdv(format("Tên trưởng phòng: %s", tenTruongPhong));
     }
 
     @Override
     public void xuatLuongThang() {
-        out.println("Luong thang: " + luongThang);
+        printlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     @Override

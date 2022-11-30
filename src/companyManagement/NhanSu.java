@@ -1,14 +1,19 @@
-import java.util.Scanner;
+package companyManagement;
+
+import java.util.*;
+
 import static java.lang.String.*;
 import static java.lang.System.*;
+import static support.constant.*;
+import static support.support.*;
 
 public class NhanSu {
     private String maNhanVien;
     private String hoTen;
     private String soDienThoai;
-    protected double soNgayDiLam;
+    protected double soNgayLamViec;
     protected double luongThang;
-    private final String chucVu = "Nhan vien";
+    private final String chucVu = "nhân viên";
     private final Scanner mScan = new Scanner(in);
 
     public void tinhLuong() {
@@ -16,23 +21,23 @@ public class NhanSu {
     }
 
     public void nhapMaNhanVien() {
-        out.println("Nhap ma nhan vien: ");
+        printAdv(GREEN, "Mã nhân viên: ", RESET);
         maNhanVien = mScan.nextLine();
     }
 
     public void nhapHoTen() {
-        out.println("Nhap ho va ten: ");
+        printAdv(GREEN, "Họ tên: ", RESET);
         hoTen = mScan.nextLine();
     }
 
     public void nhapSoDienThoai() {
-        out.println("Nhap so dien thoai: ");
+        printAdv(GREEN, "Số điện thoại: ", RESET);
         soDienThoai = mScan.nextLine();
     }
 
     public void nhapSoNgayLamViec() {
-        out.println("So ngay lam viec: ");
-        soNgayDiLam = mScan.nextInt();
+        printAdv(GREEN, "Số ngày làm việc: ", RESET);
+        soNgayLamViec = numLimit(0d, 31d);
     }
 
     public void nhapNhanSu() {
@@ -42,27 +47,27 @@ public class NhanSu {
     }
 
     public void xuatMaNhanVien() {
-        out.println("Ma nhan vien: " + maNhanVien);
+        printlnAdv(format("Mã nhân viên: %s", maNhanVien));
     }
 
     public void xuatHoTen() {
-        out.println("Ho ten: " + hoTen);
+        printlnAdv(format("Họ tên: %s", hoTen));
     }
 
     public void xuatSoDienThoai() {
-        out.println("So dien thoai: " + soDienThoai);
+        printlnAdv(format("Số điện thoại: %s", soDienThoai));
     }
 
     public void xuatChucVu() {
-        out.println("Chuc vu: " + chucVu);
+        printlnAdv(format("Chức vụ: %s", chucVu));
     }
 
     public void xuatSoNgayLamViec() {
-        out.println("So ngay lam viec: " + soNgayDiLam);
+        printlnAdv(format("Số ngày làm việc: %s", writePerfectDub(soNgayLamViec)));
     }
 
     public void xuatLuongThang() {
-        out.println("Luong thang: " + luongThang);
+        printlnAdv(format("Lương tháng: %,.0f", luongThang));
     }
 
     public void xuatNhanSu() {
@@ -98,14 +103,15 @@ public class NhanSu {
     }
 
     public double getSoNgayLamViec() {
-        return soNgayDiLam;
+        return soNgayLamViec;
     }
 
-    public void setSoNgayLamViec(double soNgayDiLam) {
-        this.soNgayDiLam = soNgayDiLam;
+    public void setSoNgayLamViec(double soNgayLamViec) {
+        this.soNgayLamViec = soNgayLamViec;
     }
 
     public double getLuongThang() {
         return luongThang;
     }
+
 }

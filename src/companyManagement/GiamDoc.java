@@ -1,23 +1,25 @@
-import java.util.Scanner;
+package companyManagement;
 
 import static java.lang.Double.*;
 import static java.lang.String.*;
-import static java.lang.System.*;
+import static support.constant.*;
+import static support.support.*;
 
 public class GiamDoc extends NhanSu {
+    // #region Fields
     private double coPhan;
     private double thuNhap;
     private final String chucVu = "giám đốc";
     private final double luongNgay = 300;
-    private final Scanner mScan = new Scanner(in);
+
     @Override
     public void tinhLuong() {
-        luongThang = soNgayDiLam * luongNgay;
+        luongThang = soNgayLamViec * luongNgay;
     }
 
     public void nhapCoPhan() {
-        out.println("Co phan: ");
-        coPhan = mScan.nextInt();
+        printAdv(GREEN, "Cổ phần: ", RESET);
+        coPhan = numLimit(0, MAX_VALUE);
     }
 
     @Override
@@ -28,21 +30,21 @@ public class GiamDoc extends NhanSu {
     }
 
     public void xuatCoPhan() {
-        out.println("Co phan: " + coPhan);
+        printlnAdv(format("Cổ phần: %s%%", writePerfectDub(coPhan)));
     }
 
     public void xuatThuNhap() {
-        out.println("Thu nhap: " + thuNhap);
+        printlnAdv(format("Thu nhập: %,.0f", thuNhap));
     }
 
     @Override
     public void xuatChucVu() {
-        out.println("Chuc vu: " + chucVu );
+        printlnAdv(format("Chức vụ: %s", chucVu));
     }
 
     @Override
     public void xuatLuongThang() {
-        out.println("Luong thang: " + luongThang);
+        printlnAdv(String.format("Lương tháng: %,.0f", luongThang));
     }
 
     @Override

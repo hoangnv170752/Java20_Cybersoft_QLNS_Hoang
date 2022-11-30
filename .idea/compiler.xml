@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CompanyMembersManagement" />
+        <module name="Java20_Cybersoft_QLNS_Hoang" />
       </profile>
     </annotationProcessing>
   </component>
